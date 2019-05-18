@@ -16,31 +16,39 @@ jobs:
             - run:
                 name: Tests
                 command: npm test
-        persist_to_workspace:
-            root: .
-            paths: .
+            - persist_to_workspace:
+                root: .
+                paths: .
     build:
         docker:
             - image: circleci/node:latest
         steps:
-            - checkout
+            - attach_workspace:
+                at: .
             - run:
                 name: Build
                 command: npm run build
-        persist_to_workspace:
-            root: .
-            paths:
-                - ./build
+            - persist_to_workspace:
+                root: .
+                paths:
+                    - ./build
     publish:
         docker:
             - image: circleci/python:latest-node
-        run:
-          name: Publish
-          command: |
-              curl -O https://bootstrap.pypa.io/get-pip.py
-              python3 get-pip.py --user
-              pip3 install awscli --upgrade --user
-              export PATH=/home/circleci/.local/bin:$PATH
+        steps:
+            - attach_workspace:
+                at: .
+            - run:
+                name: Publish
+                command: |
+                    curl -O https://bootstrap.pypa.io/get-pip.py
+                    python3 get-pip.py --user
+                    pip3 install awscli --upgrade --user
+                    export PATH=/home/circleci/.local/bin:$PATH
+                    aws configure set aws_access_key_id $AWS_ACCESS
+                    aws configure set aws_secret_access_key $AWS_SECRET
+                    aws s3 sync ./build s3://homework-front
+Output:
 workflows:
     version: 2
     workflow:
