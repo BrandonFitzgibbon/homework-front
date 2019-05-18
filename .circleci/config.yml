@@ -18,11 +18,13 @@ jobs:
                 command: npm test
             - persist_to_workspace:
                 root: .
+                paths: .
     build:
         docker:
             - image: circleci/node:latest
         steps:
-            - checkout
+            - attach_workspace:
+                at: .
             - run:
                 name: Build
                 command: npm run build
