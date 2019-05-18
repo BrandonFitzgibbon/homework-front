@@ -37,7 +37,7 @@ jobs:
             - image: circleci/python:latest-node
         steps:
             - attach_workspace:
-                at: ./build
+                at: .
             - run:
                 name: Publish
                 command: |
@@ -47,7 +47,7 @@ jobs:
                     export PATH=/home/circleci/.local/bin:$PATH
                     aws configure set aws_access_key_id $AWS_ACCESS
                     aws configure set aws_secret_access_key $AWS_SECRET
-                    aws s3 sync . s3://homework-front
+                    aws s3 sync ./build s3://homework-front
 Output:
 workflows:
     version: 2
