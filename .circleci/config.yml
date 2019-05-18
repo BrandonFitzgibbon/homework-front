@@ -37,7 +37,7 @@ jobs:
             - image: circleci/python:latest-node
         steps:
             - attach_workspace:
-                at: .
+                at: ./build
             - run:
                 name: Publish
                 command: |
