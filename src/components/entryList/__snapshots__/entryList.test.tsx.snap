@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`list adds Entry when state changes 1`] = `<ul />`;
+
+exports[`list adds Entry when state changes 2`] = `
+<ul>
+  <div>
+    hello, world
+  </div>
+</ul>
+`;
+
+exports[`list adds Entry when state changes 3`] = `
+<ul>
+  <div>
+    hello, world
+  </div>
+  <div>
+    yolo
+  </div>
+</ul>
+`;
