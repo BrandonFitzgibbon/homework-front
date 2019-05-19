@@ -1,12 +1,18 @@
 import React from 'react';
 import './App.css';
-import Entry from './components/entry'
+import { Provider } from 'react-redux'
+import { store } from './redux/store'
+import Post from './components/post'
+import EntryList from './components/entryList';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <Entry />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Post />
+        <EntryList />
+      </div>
+    </Provider>
   );
 }
 
