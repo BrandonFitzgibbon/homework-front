@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import Entry from './components/entry'
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <div>Hello, world!</div>
+      <Entry />
     </div>
   );
 }
