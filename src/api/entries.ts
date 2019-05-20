@@ -10,9 +10,10 @@ export const postEntry = async (entry : IEntry) : Promise<[Error?, IEntry?]> => 
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(entry)
+            body: JSON.stringify([entry])
         })
         result = result && await result.json()
+        result = result[0]
     }
     catch(err) {
         return [err, undefined]
