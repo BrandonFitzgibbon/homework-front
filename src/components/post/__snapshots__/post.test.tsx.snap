@@ -4,19 +4,31 @@ exports[`post input updates with keystrokes and clears on submit 1`] = `
 <form
   onSubmit={[Function]}
 >
-  <label>
-    Entry:
-    <input
-      name="entry"
+  <div
+    className="postContainer"
+  >
+    <label
+      className="postLabel"
+    >
+      New Post
+    </label>
+    <textarea
+      className="entryBox"
       onChange={[Function]}
-      type="text"
       value=""
     />
-  </label>
-  <input
-    type="submit"
-    value="Submit"
-  />
+    <div>
+      <input
+        onChange={[Function]}
+        placeholder="Name"
+        value=""
+      />
+      <input
+        type="submit"
+        value="Submit"
+      />
+    </div>
+  </div>
 </form>
 `;
 
@@ -24,19 +36,37 @@ exports[`post input updates with keystrokes and clears on submit 2`] = `
 <form
   onSubmit={[Function]}
 >
-  <label>
-    Entry:
-    <input
-      name="entry"
+  <div
+    className="postContainer"
+  >
+    <label
+      className="postLabel"
+    >
+      New Post
+    </label>
+    <textarea
+      className="entryBox"
       onChange={[Function]}
-      type="text"
-      value="h"
+      value=""
     />
-  </label>
-  <input
-    type="submit"
-    value="Submit"
-  />
+    <div>
+      Can't post empty content
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        placeholder="Name"
+        value=""
+      />
+      <input
+        type="submit"
+        value="Submit"
+      />
+    </div>
+    <div>
+      Name can't be empty
+    </div>
+  </div>
 </form>
 `;
 
@@ -44,19 +74,34 @@ exports[`post input updates with keystrokes and clears on submit 3`] = `
 <form
   onSubmit={[Function]}
 >
-  <label>
-    Entry:
-    <input
-      name="entry"
+  <div
+    className="postContainer"
+  >
+    <label
+      className="postLabel"
+    >
+      New Post
+    </label>
+    <textarea
+      className="entryBox"
       onChange={[Function]}
-      type="text"
-      value="he"
+      value=""
     />
-  </label>
-  <input
-    type="submit"
-    value="Submit"
-  />
+    <div>
+      Can't post empty content
+    </div>
+    <div>
+      <input
+        onChange={[Function]}
+        placeholder="Name"
+        value="bob"
+      />
+      <input
+        type="submit"
+        value="Submit"
+      />
+    </div>
+  </div>
 </form>
 `;
 
@@ -64,19 +109,34 @@ exports[`post input updates with keystrokes and clears on submit 4`] = `
 <form
   onSubmit={[Function]}
 >
-  <label>
-    Entry:
-    <input
-      name="entry"
+  <div
+    className="postContainer"
+  >
+    <label
+      className="postLabel"
+    >
+      New Post
+    </label>
+    <textarea
+      className="entryBox"
       onChange={[Function]}
-      type="text"
-      value="hello, world"
+      value="hello"
     />
-  </label>
-  <input
-    type="submit"
-    value="Submit"
-  />
+    <div>
+      <input
+        onChange={[Function]}
+        placeholder="Name"
+        value=""
+      />
+      <input
+        type="submit"
+        value="Submit"
+      />
+    </div>
+    <div>
+      Name can't be empty
+    </div>
+  </div>
 </form>
 `;
 
@@ -84,18 +144,30 @@ exports[`post input updates with keystrokes and clears on submit 5`] = `
 <form
   onSubmit={[Function]}
 >
-  <label>
-    Entry:
-    <input
-      name="entry"
+  <div
+    className="postContainer"
+  >
+    <label
+      className="postLabel"
+    >
+      New Post
+    </label>
+    <textarea
+      className="entryBox"
       onChange={[Function]}
-      type="text"
-      value=""
+      value="hello"
     />
-  </label>
-  <input
-    type="submit"
-    value="Submit"
-  />
+    <div>
+      <input
+        onChange={[Function]}
+        placeholder="Name"
+        value="bob"
+      />
+      <input
+        type="submit"
+        value="Submit"
+      />
+    </div>
+  </div>
 </form>
 `;

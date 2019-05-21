@@ -1,7 +1,11 @@
 export interface IEntry {
+    _id?: string
     content: string
+    name: string
 }
 
 export interface State {
-    entries: IEntry[]
+    allEntries: IEntry[]
+    currentEntries: IEntry[]
+    currentName: string
 }

@@ -1,36 +1,9 @@
 import React from 'react'
 import EntryList from './index'
-import renderer, { act } from 'react-test-renderer'
-import { store } from '../../redux/store'
-import { Provider } from 'react-redux'
-import { postEntry } from '../../redux/actions'
+import ReactDOM from 'react-dom';
 
-test('list adds Entry when state changes', () => {
-    const list = renderer.create(
-        <Provider store={store}>
-            <EntryList />
-        </Provider>
-    )
-    let tree = list.toJSON()
-    expect(tree).toMatchSnapshot()
-
-    //add item to list
-    act(() => {
-        store.dispatch(postEntry({
-            content: "hello, world"
-        }))
-    })
-
-    tree = list.toJSON()
-    expect(tree).toMatchSnapshot()
-
-    //add another item to the list
-    act(() => {
-        store.dispatch(postEntry({
-            content: "yolo"
-        }))
-    })
-
-    tree = list.toJSON()
-    expect(tree).toMatchSnapshot()
-}) 
+it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(<EntryList entries={[{_id: '1', content: 'hello,world', name: 'bob'}]}/>, div);
+    ReactDOM.unmountComponentAtNode(div);
+});

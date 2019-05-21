@@ -1,9 +1,9 @@
 import React from 'react'
 import { IEntry } from '../../types/interfaces'
 
-const Entry : React.FC<IEntry> = (entry: IEntry) => {
+const Entry : React.FC<{entry: IEntry}> = (props: {entry: IEntry}) => {
     return (
-        <div>{entry.content}</div>
+        <div>{props.entry.content}</div>
     )
 }
 

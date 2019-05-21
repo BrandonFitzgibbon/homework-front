@@ -3,14 +3,17 @@ import './App.css';
 import { Provider } from 'react-redux'
 import { store } from './redux/store'
 import Post from './components/post'
-import EntryList from './components/entryList';
+import CurrentEntryListContainer from './components/currentEntryListContainer'
+import AllEntryListContainer from './components/allEntryListContainer';
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
       <div className="App">
         <Post />
-        <EntryList />
+        <CurrentEntryListContainer />
+        <hr/>
+        <AllEntryListContainer />
       </div>
     </Provider>
   );
