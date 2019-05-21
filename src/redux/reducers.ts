@@ -40,10 +40,20 @@ function currentName(state: string = '', action: { type: Type, name: string}) : 
     
 }
 
+function currentTarget(state: string = '', action: { type: Type, target_id: string}) : string {
+    switch(action.type) {
+        case Type.CHANGE_TARGET:
+            return action.target_id
+        default:
+            return state
+    }
+}
+
 const app = combineReducers({
     allEntries,
     currentEntries,
-    currentName
+    currentName,
+    currentTarget
 })
 
 export default app

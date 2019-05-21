@@ -4,8 +4,13 @@ export interface IEntry {
     name: string
 }
 
+export interface IReply extends IEntry {
+    target_id: string
+}
+
 export interface State {
     allEntries: IEntry[]
     currentEntries: IEntry[]
     currentName: string
+    currentTarget: string
 }

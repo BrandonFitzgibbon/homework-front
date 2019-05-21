@@ -2,7 +2,7 @@ import React, { Component, ChangeEvent, FormEvent } from "react";
 import { connect } from 'react-redux'
 import { IEntry, State } from '../../types/interfaces'
 import { changeName, postAllEntry, postCurrentEntry, setCurrentEntries } from '../../redux/actions'
-import { postEntry, getEntries} from '../../api/entries'
+import { postEntry, getEntries, postReply} from '../../api/entries'
 import './post.css'
 
 export interface EntryParameters {
@@ -11,6 +11,7 @@ export interface EntryParameters {
     setCurrentEntries: (entries: IEntry[]) => void
     changeName: (name: string) => void
     currentName: string
+    currentTarget: string
 }
 
 class Post extends Component<EntryParameters> {
@@ -38,6 +39,7 @@ class Post extends Component<EntryParameters> {
         this.handleNameChange = this.handleNameChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.tryPostEntry = this.tryPostEntry.bind(this)
+        this.tryPostReply = this.tryPostReply.bind(this)
         this.tryChangeName = this.tryChangeName.bind(this)
         this.validate = this.validate.bind(this)
     }
@@ -58,8 +60,11 @@ class Post extends Component<EntryParameters> {
         event.preventDefault()
         this.validate()
         await this.tryChangeName()
-        await this.tryPostEntry()
-
+        if (this.props.currentTarget) {
+            await this.tryPostReply()
+        } else {
+            await this.tryPostEntry()
+        }
     }
 
     validate() {
@@ -89,6 +94,25 @@ class Post extends Component<EntryParameters> {
         }
     }
 
+    async tryPostReply() {
+        if (this.state.validContent && this.state.validName) {
+            let [err, result] = await postReply({
+                target_id: this.props.currentTarget,
+                content: this.state.content,
+                name: this.state.name
+            })
+            if (err) {
+                // do something with erorrs
+            }
+            if (result) {
+                this.setState({
+                    content: '',
+                    validContent: false
+                })
+            }
+        }
+    }
+
     async tryChangeName () {
         if (this.state.validName && this.props.currentName !== this.state.name) {
             let [err, result] = await getEntries(this.state.name)
@@ -107,7 +131,7 @@ class Post extends Component<EntryParameters> {
             <form onSubmit={this.handleSubmit}>
                 <div className="postContainer">
                     <label className="postLabel">
-                        New Post
+                        {this.props.currentTarget ? "New Reply" : "New Post"}
                     </label>
                     <textarea className="entryBox" value={this.state.content} onChange={this.handleContentChange}/>
                     { this.state.showContentWarning && (
@@ -132,7 +156,8 @@ class Post extends Component<EntryParameters> {
 
 const mapStateToProps = (state: State) => {
     return {
-        currentName: state.currentName
+        currentName: state.currentName,
+        currentTarget: state.currentTarget
     }
 }
 
