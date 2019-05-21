@@ -1,7 +1,17 @@
 export interface IEntry {
+    _id?: string
     content: string
+    name: string
+}
+
+export interface IReply extends IEntry {
+    target_id: string
 }
 
 export interface State {
-    entries: IEntry[]
+    allEntries: IEntry[]
+    currentEntries: IEntry[]
+    currentReplies: IReply[]
+    currentName: string
+    currentTarget: string
 }

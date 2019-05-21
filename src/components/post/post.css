@@ -1,0 +1,13 @@
+.postContainer {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.postLabel {
+    text-align: left
+}
+
+.entryBox {
+    height: auto
+}

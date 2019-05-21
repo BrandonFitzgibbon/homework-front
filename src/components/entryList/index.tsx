@@ -1,29 +1,15 @@
-import React, { Component } from "react";
-import { connect } from 'react-redux'
-import { State, IEntry } from '../../types/interfaces'
+import React from "react";
+import { IEntry } from '../../types/interfaces'
 import Entry from "../entry";
 
-interface EntryListParameters {
-    entries: IEntry[]
+const EntryList : React.FC<{entries: IEntry[]}> = (props: {entries: IEntry[]}) => {
+    return (
+        <ul>
+            {props.entries.map((entry: IEntry) => {
+                return <Entry key={entry._id} entry={entry}/>
+            })}
+        </ul>
+    )
 }
 
-class EntryList extends Component<EntryListParameters> {
-    render() {
-        return (
-            <ul>
-                {this.props.entries.map((entry: IEntry) => {
-                    return <Entry key={entry.content} content={entry.content}></Entry>
-                })}
-            </ul>
-        )
-    }
-}
-
-
-const mapStateToProps = (state : State) => {
-    return {
-        entries: state.entries
-    }
-}
-
-export default connect(mapStateToProps)(EntryList)
+export default EntryList

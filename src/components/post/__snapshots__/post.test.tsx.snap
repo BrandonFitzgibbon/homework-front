@@ -4,19 +4,21 @@ exports[`post input updates with keystrokes and clears on submit 1`] = `
 <form
   onSubmit={[Function]}
 >
-  <label>
-    Entry:
-    <input
-      name="entry"
+  <div
+    className="postContainer"
+  >
+    <textarea
+      className="entryBox"
       onChange={[Function]}
-      type="text"
+      placeholder="content"
       value=""
     />
-  </label>
-  <input
-    type="submit"
-    value="Submit"
-  />
+    <input
+      disabled={true}
+      type="submit"
+      value="Post"
+    />
+  </div>
 </form>
 `;
 
@@ -24,78 +26,20 @@ exports[`post input updates with keystrokes and clears on submit 2`] = `
 <form
   onSubmit={[Function]}
 >
-  <label>
-    Entry:
-    <input
-      name="entry"
+  <div
+    className="postContainer"
+  >
+    <textarea
+      className="entryBox"
       onChange={[Function]}
-      type="text"
-      value="h"
+      placeholder="content"
+      value="hello,world"
     />
-  </label>
-  <input
-    type="submit"
-    value="Submit"
-  />
-</form>
-`;
-
-exports[`post input updates with keystrokes and clears on submit 3`] = `
-<form
-  onSubmit={[Function]}
->
-  <label>
-    Entry:
     <input
-      name="entry"
-      onChange={[Function]}
-      type="text"
-      value="he"
+      disabled={false}
+      type="submit"
+      value="Post"
     />
-  </label>
-  <input
-    type="submit"
-    value="Submit"
-  />
-</form>
-`;
-
-exports[`post input updates with keystrokes and clears on submit 4`] = `
-<form
-  onSubmit={[Function]}
->
-  <label>
-    Entry:
-    <input
-      name="entry"
-      onChange={[Function]}
-      type="text"
-      value="hello, world"
-    />
-  </label>
-  <input
-    type="submit"
-    value="Submit"
-  />
-</form>
-`;
-
-exports[`post input updates with keystrokes and clears on submit 5`] = `
-<form
-  onSubmit={[Function]}
->
-  <label>
-    Entry:
-    <input
-      name="entry"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
-  </label>
-  <input
-    type="submit"
-    value="Submit"
-  />
+  </div>
 </form>
 `;

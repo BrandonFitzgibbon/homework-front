@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`name component states 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <input
+    onChange={[Function]}
+    placeholder="Name"
+    value=""
+  />
+  <input
+    disabled={true}
+    type="submit"
+    value="Submit"
+  />
+  <p>
+    Please enter your name to post or reply
+  </p>
+</form>
+`;
+
+exports[`name component states 2`] = `
+<form
+  onSubmit={[Function]}
+>
+  <input
+    onChange={[Function]}
+    placeholder="Name"
+    value="Test"
+  />
+  <input
+    disabled={false}
+    type="submit"
+    value="Submit"
+  />
+  <p>
+    Please enter your name to post or reply
+  </p>
+</form>
+`;
