@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { IEntry } from '../types/interfaces'
+import { IEntry, IReply } from '../types/interfaces'
 import { Type } from './actions'
 
 function allEntries(state: IEntry[] = [], action: { type: Type, entries: IEntry[] }) : IEntry[] {
@@ -30,6 +30,20 @@ function currentEntries(state: IEntry[] = [], action: { type: Type, entries: IEn
     }
 }
 
+function currentReplies(state: IReply[] = [], action: {type: Type, replies: IReply[]}) : IReply[] {
+    switch(action.type) {
+        case Type.POST_CURRENT_REPLY:
+            return [
+                ...state,
+                ...action.replies
+            ]
+        case Type.SET_CURRENT_REPLIES:
+            return action.replies
+        default:
+            return state
+    }
+}
+
 function currentName(state: string = '', action: { type: Type, name: string}) : string {
     switch(action.type) {
         case Type.CHANGE_NAME:
@@ -52,6 +66,7 @@ function currentTarget(state: string = '', action: { type: Type, target_id: stri
 const app = combineReducers({
     allEntries,
     currentEntries,
+    currentReplies,
     currentName,
     currentTarget
 })

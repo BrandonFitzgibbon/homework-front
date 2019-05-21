@@ -1,14 +1,43 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux'
 import { State, IEntry } from '../../types/interfaces'
+import { getEntries } from '../../api/entries'
+import { setCurrentEntries } from '../../redux/actions'
 import EntryList from "../entryList";
 
 interface EntryListContainerProps {
     entries: IEntry[]
     currentName: string
+    setCurrentEntries: (entries: IEntry[]) => void
 }
 
 class CurrentEntryListContainer extends Component<EntryListContainerProps> {
+    async componentDidMount() {
+        if (this.props.currentName.length > 0) {
+            const [err, result] = await getEntries(this.props.currentName)
+            if (result) {
+                this.props.setCurrentEntries(result)
+            } else {
+                if (err) {
+                    console.log(err)
+                }
+            }
+        }
+    }
+
+    async componentDidUpdate(prevProps: EntryListContainerProps) {
+        if (prevProps.currentName !== this.props.currentName && this.props.currentName.length > 0) {
+            const [err, result] = await getEntries(this.props.currentName)
+            if (result) {
+                this.props.setCurrentEntries(result)
+            } else {
+                if (err) {
+                    console.log(err)
+                }
+            }
+        }
+    }
+
     render() {
         const title = this.props.currentName ? this.props.currentName + "'s Posts" : ""
         return (
@@ -20,6 +49,13 @@ class CurrentEntryListContainer extends Component<EntryListContainerProps> {
     }
 }
 
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        setCurrentEntries: (entries: IEntry[]) => {
+            dispatch(setCurrentEntries(entries))
+        }
+    }
+}
 
 const mapStateToProps = (state : State) => {
     return {
@@ -28,4 +64,4 @@ const mapStateToProps = (state : State) => {
     }
 }
 
-export default connect(mapStateToProps)(CurrentEntryListContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(CurrentEntryListContainer)

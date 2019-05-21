@@ -1,23 +1,23 @@
 import React, { Component, ChangeEvent, FormEvent } from "react";
 import { connect } from 'react-redux'
-import { IEntry, State } from '../../types/interfaces'
-import { postAllEntry, postCurrentEntry } from '../../redux/actions'
-import { postEntry} from '../../api/entries'
-import './post.css'
+import { State, IReply } from '../../types/interfaces'
+import { postCurrentReply, changeTarget } from '../../redux/actions'
+import { postReply } from '../../api/replies'
 
-interface PostParameters {
-    postAllEntry: (entry: IEntry) => void
-    postCurrentEntry: (entry: IEntry) => void
+interface ReplyParameters {
+    postCurrentReply: (reply: IReply) => void
+    changeTarget: (target: string) => void
     currentName: string
+    currentTarget: string
 }
 
-class Post extends Component<PostParameters> {
+class Reply extends Component<ReplyParameters> {
     readonly state: {
         content: string
         validContent: boolean
     }
 
-    constructor(props: PostParameters) {
+    constructor(props: ReplyParameters) {
         super(props)
         this.state = { 
             content: '', 
@@ -26,7 +26,7 @@ class Post extends Component<PostParameters> {
 
         this.handleContentChange = this.handleContentChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.tryPostEntry = this.tryPostEntry.bind(this)
+        this.tryPostReply = this.tryPostReply.bind(this)
     }
 
     isContentValid = (value: string) => {
@@ -39,21 +39,21 @@ class Post extends Component<PostParameters> {
 
     async handleSubmit (event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
-        await this.tryPostEntry()
+        await this.tryPostReply()
     }
 
-    async tryPostEntry() {
+    async tryPostReply() {
         if (this.isContentValid(this.state.content)) {
-            let [err, result] = await postEntry({
+            let [err, result] = await postReply({
                 content: this.state.content,
-                name: this.props.currentName
+                name: this.props.currentName,
+                target_id: this.props.currentTarget
             })
             if (err) {
                 console.log(err)
             }
             if (result) {
-                this.props.postAllEntry(result)
-                this.props.postCurrentEntry(result)
+                this.props.postCurrentReply(result)
                 this.setState({
                     content: '',
                     validContent: this.isContentValid('')
@@ -67,7 +67,7 @@ class Post extends Component<PostParameters> {
             <form onSubmit={this.handleSubmit}>
                 <div className="postContainer">
                     <textarea className="entryBox" placeholder="content" value={this.state.content} onChange={this.handleContentChange}/>
-                    <input type="submit" value="Post" disabled={!this.state.validContent}/>
+                    <input type="submit" value="Reply" disabled={!this.state.validContent}/>
                 </div>
             </form>
         )
@@ -76,19 +76,20 @@ class Post extends Component<PostParameters> {
 
 const mapStateToProps = (state: State) => {
     return {
-        currentName: state.currentName
+        currentName: state.currentName,
+        currentTarget: state.currentTarget
     }
 }
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        postAllEntry: (entry: IEntry) => {
-            dispatch(postAllEntry(entry))
+        postCurrentReply: (reply: IReply) => {
+            dispatch(postCurrentReply(reply))
         },
-        postCurrentEntry: (entry: IEntry) => {
-            dispatch(postCurrentEntry(entry))
+        changeTarget: (target: string) => {
+            dispatch(changeTarget(target))
         }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Post)
+export default connect(mapStateToProps, mapDispatchToProps)(Reply)

@@ -7,27 +7,17 @@ exports[`post input updates with keystrokes and clears on submit 1`] = `
   <div
     className="postContainer"
   >
-    <label
-      className="postLabel"
-    >
-      New Post
-    </label>
     <textarea
       className="entryBox"
       onChange={[Function]}
+      placeholder="content"
       value=""
     />
-    <div>
-      <input
-        onChange={[Function]}
-        placeholder="Name"
-        value=""
-      />
-      <input
-        type="submit"
-        value="Submit"
-      />
-    </div>
+    <input
+      disabled={true}
+      type="submit"
+      value="Post"
+    />
   </div>
 </form>
 `;
@@ -39,135 +29,17 @@ exports[`post input updates with keystrokes and clears on submit 2`] = `
   <div
     className="postContainer"
   >
-    <label
-      className="postLabel"
-    >
-      New Post
-    </label>
     <textarea
       className="entryBox"
       onChange={[Function]}
-      value=""
+      placeholder="content"
+      value="hello,world"
     />
-    <div>
-      Can't post empty content
-    </div>
-    <div>
-      <input
-        onChange={[Function]}
-        placeholder="Name"
-        value=""
-      />
-      <input
-        type="submit"
-        value="Submit"
-      />
-    </div>
-    <div>
-      Name can't be empty
-    </div>
-  </div>
-</form>
-`;
-
-exports[`post input updates with keystrokes and clears on submit 3`] = `
-<form
-  onSubmit={[Function]}
->
-  <div
-    className="postContainer"
-  >
-    <label
-      className="postLabel"
-    >
-      New Post
-    </label>
-    <textarea
-      className="entryBox"
-      onChange={[Function]}
-      value=""
+    <input
+      disabled={false}
+      type="submit"
+      value="Post"
     />
-    <div>
-      Can't post empty content
-    </div>
-    <div>
-      <input
-        onChange={[Function]}
-        placeholder="Name"
-        value="bob"
-      />
-      <input
-        type="submit"
-        value="Submit"
-      />
-    </div>
-  </div>
-</form>
-`;
-
-exports[`post input updates with keystrokes and clears on submit 4`] = `
-<form
-  onSubmit={[Function]}
->
-  <div
-    className="postContainer"
-  >
-    <label
-      className="postLabel"
-    >
-      New Post
-    </label>
-    <textarea
-      className="entryBox"
-      onChange={[Function]}
-      value="hello"
-    />
-    <div>
-      <input
-        onChange={[Function]}
-        placeholder="Name"
-        value=""
-      />
-      <input
-        type="submit"
-        value="Submit"
-      />
-    </div>
-    <div>
-      Name can't be empty
-    </div>
-  </div>
-</form>
-`;
-
-exports[`post input updates with keystrokes and clears on submit 5`] = `
-<form
-  onSubmit={[Function]}
->
-  <div
-    className="postContainer"
-  >
-    <label
-      className="postLabel"
-    >
-      New Post
-    </label>
-    <textarea
-      className="entryBox"
-      onChange={[Function]}
-      value="hello"
-    />
-    <div>
-      <input
-        onChange={[Function]}
-        placeholder="Name"
-        value="bob"
-      />
-      <input
-        type="submit"
-        value="Submit"
-      />
-    </div>
   </div>
 </form>
 `;

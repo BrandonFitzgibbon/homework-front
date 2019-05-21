@@ -5,6 +5,7 @@ import { store } from '../../redux/store'
 import { Provider } from 'react-redux'
 
 jest.mock('../../api/entries')
+jest.mock('../../api/replies')
 
 test('post input updates with keystrokes and clears on submit', async () => {
     let post : ReactTestRenderer | undefined
@@ -24,56 +25,18 @@ test('post input updates with keystrokes and clears on submit', async () => {
         )
     })
     
+    let textarea
     if (post) { 
-        const textArea = post.root.findByType('textarea')
-        const nameInput = post.root.findAllByType('input').find(i => i.props.placeholder === 'Name')
-        const submit = post.root.findByType('form')
-
-        const simulateSubmit = async () => {
-            if (submit && submit.props.onSubmit) {
-                act(() => {
-                    submit.props.onSubmit({ preventDefault: () => {}})
-                })
-            }
-        }
-
-        const changeTextArea = (value: string) => {
-            if (textArea && textArea.props.onChange) {
-                act(() => {
-                    textArea.props.onChange({target: {value: value}})
-                })
-            }
-        }
-
-        const changeNameInput = (value: string) => {
-            if (nameInput && nameInput.props.onChange) {
-                act(() => {
-                    nameInput.props.onChange({target: {value: value}})
-                })
-            }
-        }
-
-        //initial
-        snap()
-
-        //empty inputs submit
-        simulateSubmit()
-        snap()
-
-        //empty textarea submit
-        changeNameInput("bob")
-        simulateSubmit()
-        snap()
-
-        //empty name submit
-        changeNameInput("")
-        changeTextArea("hello")
-        simulateSubmit()
-        snap()
-
-        //good submit
-        changeNameInput("bob")
-        simulateSubmit()
-        snap()
+        textarea = post.root.findByType('textarea')
     }
+
+    //initial snap
+    snap()
+
+    //write some content
+    if (textarea) {
+        textarea.props.onChange({target:{value:"hello,world"}})
+    }
+
+    snap()
 })

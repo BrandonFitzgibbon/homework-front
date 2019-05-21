@@ -1,4 +1,4 @@
-import { IEntry, IReply } from '../types/interfaces'
+import { IEntry } from '../types/interfaces'
 
 const url = process.env.REACT_APP_API_ENDPOINT || "https://api.brandonfitzgibbon.com"
 
@@ -14,27 +14,6 @@ export const postEntry = async (entry : IEntry) : Promise<[Error?, IEntry?]> => 
         })
         result = result && await result.json()
         result = result[0]
-    }
-    catch(err) {
-        return [err, undefined]
-    }
-    return [undefined, result]
-}
-
-export const postReply = async (reply : IReply) : Promise<[Error?, IReply?]> => {
-    let result
-    try {
-        result = await fetch(url + "/entries/" + reply.target_id + "/replies", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                content: reply.content,
-                name: reply.name
-            })
-        })
-        result = result && await result.json()
     }
     catch(err) {
         return [err, undefined]

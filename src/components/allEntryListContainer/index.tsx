@@ -17,9 +17,8 @@ class AllEntryListContainer extends Component<EntryListContainerProps> {
             this.props.setAllEntries(result)
         } else {
             if (err) {
-                
+                console.log(err)
             }
-            //do something with error
         }
     }
 

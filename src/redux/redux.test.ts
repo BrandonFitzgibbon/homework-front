@@ -6,6 +6,8 @@ it('creates store and initializes state', () => {
     expect(state).toHaveProperty("allEntries")
     expect(state).toHaveProperty("currentEntries")
     expect(state).toHaveProperty("currentName")
+    expect(state).toHaveProperty("currentTarget")
+    expect(state).toHaveProperty("currentReplies")
 })
 
 const entries = [
@@ -62,4 +64,11 @@ it('changes name', () => {
     store.dispatch(actions.changeName(name))
     const state = store.getState()
     expect(state.currentName).toBe(name)
+})
+
+it('changes target', () => {
+    const target = "Bob"
+    store.dispatch(actions.changeTarget(target))
+    const state = store.getState()
+    expect(state.currentTarget).toBe(target)
 })

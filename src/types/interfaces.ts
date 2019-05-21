@@ -11,6 +11,7 @@ export interface IReply extends IEntry {
 export interface State {
     allEntries: IEntry[]
     currentEntries: IEntry[]
+    currentReplies: IReply[]
     currentName: string
     currentTarget: string
 }
