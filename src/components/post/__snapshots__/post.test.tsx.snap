@@ -5,19 +5,117 @@ exports[`post input updates with keystrokes and clears on submit 1`] = `
   onSubmit={[Function]}
 >
   <div
-    className="postContainer"
+    className="MuiFormControl-root-9 Post-form-1"
   >
-    <textarea
-      className="entryBox"
-      onChange={[Function]}
-      placeholder="content"
-      value=""
-    />
-    <input
-      disabled={true}
-      type="submit"
-      value="Post"
-    />
+    <p
+      className="Post-text-7"
+    >
+      What's on your mind?
+    </p>
+    <div
+      className="Post-postContainer-5"
+    >
+      <div
+        className="Post-subContainer-6"
+      >
+        <div
+          className="MuiFormControl-root-9 MuiFormControl-marginNormal-10"
+        >
+          <label
+            className="MuiFormLabel-root-24 MuiInputLabel-root-13 MuiInputLabel-formControl-18 MuiInputLabel-animated-21"
+            data-shrink={false}
+          >
+            Content
+          </label>
+          <div
+            className="MuiInputBase-root-44 MuiInput-root-31 MuiInput-underline-35 MuiInputBase-formControl-45 MuiInput-formControl-32 MuiInputBase-multiline-52 MuiInput-multiline-37"
+            onClick={[Function]}
+          >
+            <div
+              className="MuiPrivateTextarea-root-61"
+            >
+              <textarea
+                aria-hidden="true"
+                className="MuiPrivateTextarea-textarea-62 MuiPrivateTextarea-shadow-63"
+                readOnly={true}
+                rows="1"
+                tabIndex={-1}
+                value=""
+              />
+              <textarea
+                aria-hidden="true"
+                className="MuiPrivateTextarea-textarea-62 MuiPrivateTextarea-shadow-63"
+                readOnly={true}
+                rows={1}
+                tabIndex={-1}
+                value=""
+              />
+              <textarea
+                aria-invalid={false}
+                className="MuiPrivateTextarea-textarea-62 MuiInputBase-input-54 MuiInput-input-39 MuiInputBase-inputMultiline-56 MuiInput-inputMultiline-41"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={false}
+                rows={1}
+                style={
+                  Object {
+                    "height": 19,
+                  }
+                }
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className="Post-bottomContainer-4"
+        >
+          <div
+            className="MuiInputBase-root-44 MuiInput-root-31 MuiInput-underline-35 MuiInputBase-formControl-45 MuiInput-formControl-32 Post-cityInput-3"
+            onClick={[Function]}
+          >
+            <input
+              aria-invalid={false}
+              className="MuiInputBase-input-54 MuiInput-input-39"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              placeholder="City"
+              required={false}
+              type="text"
+              value=""
+            />
+          </div>
+          <button
+            className="MuiButtonBase-root-90 MuiButtonBase-disabled-91 MuiButton-root-64 MuiButton-contained-75 MuiButton-containedPrimary-76 MuiButton-raised-78 MuiButton-raisedPrimary-79 MuiButton-disabled-84 Post-button-2"
+            disabled={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="-1"
+            type="button"
+          >
+            <span
+              className="MuiButton-label-65"
+            >
+              Post
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </form>
 `;
@@ -27,19 +125,117 @@ exports[`post input updates with keystrokes and clears on submit 2`] = `
   onSubmit={[Function]}
 >
   <div
-    className="postContainer"
+    className="MuiFormControl-root-9 Post-form-1"
   >
-    <textarea
-      className="entryBox"
-      onChange={[Function]}
-      placeholder="content"
-      value="hello,world"
-    />
-    <input
-      disabled={false}
-      type="submit"
-      value="Post"
-    />
+    <p
+      className="Post-text-7"
+    >
+      What's on your mind?
+    </p>
+    <div
+      className="Post-postContainer-5"
+    >
+      <div
+        className="Post-subContainer-6"
+      >
+        <div
+          className="MuiFormControl-root-9 MuiFormControl-marginNormal-10"
+        >
+          <label
+            className="MuiFormLabel-root-24 MuiFormLabel-filled-28 MuiInputLabel-root-13 MuiInputLabel-formControl-18 MuiInputLabel-animated-21 MuiInputLabel-shrink-20"
+            data-shrink={true}
+          >
+            Content
+          </label>
+          <div
+            className="MuiInputBase-root-44 MuiInput-root-31 MuiInput-underline-35 MuiInputBase-formControl-45 MuiInput-formControl-32 MuiInputBase-multiline-52 MuiInput-multiline-37"
+            onClick={[Function]}
+          >
+            <div
+              className="MuiPrivateTextarea-root-61"
+            >
+              <textarea
+                aria-hidden="true"
+                className="MuiPrivateTextarea-textarea-62 MuiPrivateTextarea-shadow-63"
+                readOnly={true}
+                rows="1"
+                tabIndex={-1}
+                value=""
+              />
+              <textarea
+                aria-hidden="true"
+                className="MuiPrivateTextarea-textarea-62 MuiPrivateTextarea-shadow-63"
+                readOnly={true}
+                rows={1}
+                tabIndex={-1}
+                value="hello,world"
+              />
+              <textarea
+                aria-invalid={false}
+                className="MuiPrivateTextarea-textarea-62 MuiInputBase-input-54 MuiInput-input-39 MuiInputBase-inputMultiline-56 MuiInput-inputMultiline-41"
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                required={false}
+                rows={1}
+                style={
+                  Object {
+                    "height": 19,
+                  }
+                }
+                value="hello,world"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          className="Post-bottomContainer-4"
+        >
+          <div
+            className="MuiInputBase-root-44 MuiInput-root-31 MuiInput-underline-35 MuiInputBase-formControl-45 MuiInput-formControl-32 Post-cityInput-3"
+            onClick={[Function]}
+          >
+            <input
+              aria-invalid={false}
+              className="MuiInputBase-input-54 MuiInput-input-39"
+              disabled={false}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              placeholder="City"
+              required={false}
+              type="text"
+              value=""
+            />
+          </div>
+          <button
+            className="MuiButtonBase-root-90 MuiButtonBase-disabled-91 MuiButton-root-64 MuiButton-contained-75 MuiButton-containedPrimary-76 MuiButton-raised-78 MuiButton-raisedPrimary-79 MuiButton-disabled-84 Post-button-2"
+            disabled={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onContextMenu={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex="-1"
+            type="button"
+          >
+            <span
+              className="MuiButton-label-65"
+            >
+              Post
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </form>
 `;

@@ -2,6 +2,10 @@ export interface IEntry {
     _id?: string
     content: string
     name: string
+    city: string
+    lat?: number
+    long?: number
+    temperature?: number
 }
 
 export interface IReply extends IEntry {

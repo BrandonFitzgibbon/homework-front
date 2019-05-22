@@ -27,7 +27,7 @@ test('post input updates with keystrokes and clears on submit', async () => {
     
     let textarea
     if (post) { 
-        textarea = post.root.findByType('textarea')
+        textarea = post.root.findByProps({label: "Content"})
     }
 
     //initial snap

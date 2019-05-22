@@ -4,19 +4,60 @@ exports[`name component states 1`] = `
 <form
   onSubmit={[Function]}
 >
-  <input
-    onChange={[Function]}
-    placeholder="Name"
-    value=""
-  />
-  <input
-    disabled={true}
-    type="submit"
-    value="Submit"
-  />
-  <p>
-    Please enter your name to post or reply
-  </p>
+  <div
+    className="MuiFormControl-root-5 Name-form-1"
+  >
+    <div
+      className="Name-nameContainer-3"
+    >
+      <div
+        className="MuiInputBase-root-22 MuiInput-root-9 MuiInput-underline-13 MuiInputBase-formControl-23 MuiInput-formControl-10"
+        onClick={[Function]}
+      >
+        <input
+          aria-invalid={false}
+          className="MuiInputBase-input-32 MuiInput-input-17"
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Name"
+          required={false}
+          type="text"
+          value=""
+        />
+      </div>
+      <button
+        className="MuiButtonBase-root-65 MuiButtonBase-disabled-66 MuiButton-root-39 MuiButton-contained-50 MuiButton-containedPrimary-51 MuiButton-raised-53 MuiButton-raisedPrimary-54 MuiButton-disabled-59 Name-button-2"
+        disabled={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="-1"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-40"
+        >
+          Submit
+        </span>
+      </button>
+    </div>
+    <p
+      className="Name-text-4"
+    >
+      Please enter your name to start posting or replying
+    </p>
+  </div>
 </form>
 `;
 
@@ -24,18 +65,62 @@ exports[`name component states 2`] = `
 <form
   onSubmit={[Function]}
 >
-  <input
-    onChange={[Function]}
-    placeholder="Name"
-    value="Test"
-  />
-  <input
-    disabled={false}
-    type="submit"
-    value="Submit"
-  />
-  <p>
-    Please enter your name to post or reply
-  </p>
+  <div
+    className="MuiFormControl-root-5 Name-form-1"
+  >
+    <div
+      className="Name-nameContainer-3"
+    >
+      <div
+        className="MuiInputBase-root-22 MuiInput-root-9 MuiInput-underline-13 MuiInputBase-formControl-23 MuiInput-formControl-10"
+        onClick={[Function]}
+      >
+        <input
+          aria-invalid={false}
+          className="MuiInputBase-input-32 MuiInput-input-17"
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Name"
+          required={false}
+          type="text"
+          value="Test"
+        />
+      </div>
+      <button
+        className="MuiButtonBase-root-65 MuiButton-root-39 MuiButton-contained-50 MuiButton-containedPrimary-51 MuiButton-raised-53 MuiButton-raisedPrimary-54 Name-button-2"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-40"
+        >
+          Submit
+        </span>
+        <span
+          className="MuiTouchRipple-root-68"
+        />
+      </button>
+    </div>
+    <p
+      className="Name-text-4"
+    >
+      Please enter your name to start posting or replying
+    </p>
+  </div>
 </form>
 `;

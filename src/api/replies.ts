@@ -29,7 +29,8 @@ export const postReply = async (reply : IReply) : Promise<[Error?, IReply?]> => 
             },
             body: JSON.stringify({
                 content: reply.content,
-                name: reply.name
+                name: reply.name,
+                city: reply.city
             })
         })
         result = result && await result.json()

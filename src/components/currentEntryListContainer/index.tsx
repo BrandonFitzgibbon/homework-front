@@ -4,11 +4,21 @@ import { State, IEntry } from '../../types/interfaces'
 import { getEntries } from '../../api/entries'
 import { setCurrentEntries } from '../../redux/actions'
 import EntryList from "../entryList";
+import { withStyles, createStyles } from '@material-ui/core/styles';
+
+const styles = createStyles({
+    header: {
+        fontFamily: 'roboto',
+        textAlign: 'left',
+        marginLeft: '10px'
+    }
+});
 
 interface EntryListContainerProps {
     entries: IEntry[]
     currentName: string
     setCurrentEntries: (entries: IEntry[]) => void
+    classes: any
 }
 
 class CurrentEntryListContainer extends Component<EntryListContainerProps> {
@@ -39,12 +49,11 @@ class CurrentEntryListContainer extends Component<EntryListContainerProps> {
     }
 
     render() {
-        const title = this.props.currentName ? this.props.currentName + "'s Posts" : ""
         return (
             <div>
-                <h3>{title}</h3>
+                <p className={this.props.classes.header}>Your previous posts</p>
                 <EntryList entries={this.props.entries}></EntryList>
-            </div>
+            </div> 
         )
     }
 }
@@ -64,4 +73,4 @@ const mapStateToProps = (state : State) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CurrentEntryListContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(CurrentEntryListContainer))

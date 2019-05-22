@@ -4,10 +4,20 @@ import { State, IEntry } from '../../types/interfaces'
 import EntryList from "../entryList";
 import { getEntries } from '../../api/entries'
 import { setAllEntries } from '../../redux/actions'
+import { withStyles, createStyles } from '@material-ui/core/styles';
+
+const styles = createStyles({
+    header: {
+        fontFamily: 'roboto',
+        textAlign: 'left',
+        marginLeft: '10px'
+    }
+});
 
 interface EntryListContainerProps {
     entries: IEntry[]
     setAllEntries: (entries: IEntry[]) => void
+    classes: any
 }
 
 class AllEntryListContainer extends Component<EntryListContainerProps> {
@@ -25,10 +35,9 @@ class AllEntryListContainer extends Component<EntryListContainerProps> {
     render() {
         return (
             <div>
-                <h3>All Posts</h3>
+                <p className={this.props.classes.header}>What other's have posted</p>
                 <EntryList entries={this.props.entries}></EntryList>
-            </div>
-            
+            </div> 
         )
     }
 }
@@ -47,4 +56,4 @@ const mapStateToProps = (state : State) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AllEntryListContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(AllEntryListContainer))
